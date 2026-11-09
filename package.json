@@ -1,0 +1,45 @@
+{
+  "name": "diario-alimentar",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Diário alimentar pessoal: refeições, sentimentos e experiências com alimentos.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "local:db": "bash scripts/local-stack/start-db.sh",
+    "local:api": "node scripts/local-stack/rest-shim.mjs",
+    "local:e2e": "bash scripts/local-stack/run-e2e.sh",
+    "local:test-db": "TEST_DATABASE_URL=\"postgresql://postgres@localhost:54329/diario?host=/tmp\" vitest run tests/db"
+  },
+  "dependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@fontsource-variable/literata": "^5.3.0",
+    "@hookform/resolvers": "^7.0.3",
+    "@supabase/supabase-js": "^2.119.0",
+    "@tanstack/react-query": "^5.107.1",
+    "lucide-react": "^1.70.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-hook-form": "^7.91.0",
+    "react-router-dom": "^7.18.5",
+    "recharts": "^3.10.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "pg": "^8.13.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  }
+}
