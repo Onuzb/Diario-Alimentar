@@ -1,0 +1,16 @@
+{
+  "name": "Diário alimentar",
+  "short_name": "Diário",
+  "description": "Registre refeições, sentimentos e experiências com alimentos. Lembretes de refeição pelo celular.",
+  "lang": "pt-BR",
+  "start_url": "/diario",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F5F1E6",
+  "theme_color": "#F5F1E6",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

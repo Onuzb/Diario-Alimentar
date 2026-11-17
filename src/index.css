@@ -1,0 +1,176 @@
+@import 'tailwindcss';
+
+/*
+ * Identidade visual: papel de caderno (creme), verde-sálvia como cor principal
+ * e tons terrosos (areia e umbra) para as experiências alimentares.
+ * Estrutura é feita com linhas finas e bordas; sombra só no que flutua.
+ */
+@theme {
+  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Literata Variable', Georgia, 'Times New Roman', serif;
+
+  --color-paper: #f4f0e4;
+  --color-card: #fffdf8;
+  --color-ink: #29322a;
+  --color-ink-soft: #566052;
+  --color-line: #e0d8c4;
+  --color-line-strong: #cfc5ab;
+
+  --color-sage-50: #f1f5ee;
+  --color-sage-100: #e3ebdd;
+  --color-sage-200: #cbdac3;
+  --color-sage-300: #aec3a5;
+  --color-sage-400: #8aa584;
+  --color-sage-500: #6e8b6b;
+  --color-sage-600: #587358;
+  --color-sage-700: #455c47;
+  --color-sage-800: #374a39;
+  --color-sage-900: #2b3b2d;
+
+  --color-sand-50: #f8f3e6;
+  --color-sand-100: #efe6d2;
+  --color-sand-200: #e3d6b8;
+  --color-umber-500: #96724a;
+  --color-umber-600: #7d5e3c;
+  --color-umber-700: #6a4e31;
+
+  --color-danger: #8f3b32;
+  --color-danger-soft: #f7e8e4;
+
+  --radius-card: 1.25rem;
+  --radius-field: 0.75rem;
+
+  --shadow-float: 0 1px 0 rgb(41 50 42 / 0.05), 0 18px 40px -18px rgb(41 50 42 / 0.28);
+
+  --animate-slide-in: slide-in 240ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  --animate-slide-in-left: slide-in-left 240ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  --animate-fade-in: fade-in 180ms ease-out;
+  --animate-pop-in: pop-in 180ms ease-out;
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    min-height: 100dvh;
+    background: var(--color-paper);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--color-sage-200);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sage-700);
+    outline-offset: 2px;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+
+  /* Evita o zoom automático do iOS ao focar um campo. */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Corpo de página: centralizado e limitado (o menu lateral não é limitado). */
+  .page {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 768px) {
+    .page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .sr-only-live {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
